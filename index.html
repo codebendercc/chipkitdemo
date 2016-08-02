@@ -186,7 +186,7 @@ function codebenderInit() {
         'Hello World.ino': '/*\n  Serial Hello World\n  \n  Initialized Serial Monitor at 9600 baudrate\n  Sends \"Hello World\" on the Serial Monitor every second\n\n */\n \nvoid setup()\n{\n\t// Initialize Serial Monitor\n\tSerial.begin(9600);\n}\n\nvoid loop()\n{\n\t// Send message\n\tSerial.println(\"Hello World\");\n\t// Do nothing for a second\n\tdelay(1000);\n}\n'
     };
     helloworldCodebenderClient.setFilelist(helloworldCodebenderFilelist);
-    helloworldCodebenderClient.setCloneUrl('https://codebender.cc');
+    helloworldCodebenderClient.setCloneUrl('http://chipkitdemo.codebender.cc/dashboard/#/ide/wksp-helloworld');
 
     // Microchip codebender editor
     var blinkserialOptions = {
