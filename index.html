@@ -177,6 +177,17 @@ function codebenderInit() {
     };
     helloworldCodebenderClient.setFilelist(helloworldCodebenderFilelist);
 
+    // Microchip codebender editor
+    var blinkserialOptions = {
+        id: 2,
+        CODEBENDER_DOMAIN: 'https://microchip-chipkit-proteus.codebender.cc',
+        iframe: document.getElementById('blinkserial-proteus-iframe').contentWindow
+    };
+    var blinkserialCodebenderClient = new CodebenderClient(blinkserialOptions);
+    var blinkserialCodebenderFilelist = {
+        'Blink.ino': '/*\n  Blink\n  Turns on an LED on for one second, then off for one second, repeatedly.\n\n  This example code is in the public domain.\n */\n\n// Pin 13 has an LED connected on most Arduino boards.\n// give it a name:\nint led = 13;\n\n// the setup routine runs once when you press reset:\nvoid setup()\n{\n\t// initialize the digital pin as an output.\n\tpinMode(led, OUTPUT);\n\t// Initialize Serial Monitor with 9600 baudrate\n\tSerial.begin(9600);\n}\n\n// the loop routine runs over and over again forever:\nvoid loop()\n{\n\tdigitalWrite(led, HIGH);   // turn the LED on (HIGH is the voltage level)\n\tSerial.println(\"LED HIGH\");// send the message to the Serial Monitor\n\tdelay(1000);               // wait for a second\n\tdigitalWrite(led, LOW);    // turn the LED off by making the voltage LOW\n\tSerial.println(\"LED LOW\");// send the message to the Serial Monitor\n\tdelay(1000);               // wait for a second\n}\n'
+    };
+    blinkserialCodebenderClient.setFilelist(blinkserialCodebenderFilelist);
 
 }
 
@@ -220,6 +231,9 @@ window.onload = codebenderInit;
 <a id="creating-pages-manually" class="anchor" href="#creating-pages-manually" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Creating pages manually</h3>
 
 <p>If you prefer to not use the automatic generator, push a branch named <code>gh-pages</code> to your repository to create a page manually. In addition to supporting regular HTML content, GitHub Pages support Jekyll, a simple, blog aware static site generator. Jekyll makes it easy to create site-wide headers and footers without having to copy them across every page. It also offers intelligent blog support and other advanced templating features.</p>
+
+<iframe id="blinkserial-proteus-iframe" style="height: 510px; width: 100%; margin: 10px 0 10px;" allowTransparency="true" src="https://microchip-chipkit-proteus.codebender.cc/" frameborder="0"></iframe>
+<iframe style="height: 510px; width: 100%; margin: 10px 0 10px;" allowTransparency="true" src="https://codebender.cc/embed/serialmonitor" frameborder="0"></iframe>
 
 <h3>
 <a id="authors-and-contributors" class="anchor" href="#authors-and-contributors" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Authors and Contributors</h3>
