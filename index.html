@@ -151,6 +151,24 @@ CodebenderClient.prototype.getFilelist = function () {
     this.sendMessage(message);
 };
   </script>
+  <script>
+    function codebenderInit() {
+    // Atmel codebender editor
+    var editorOptions = {
+        id: 0,
+        CODEBENDER_DOMAIN: 'https://microchip-chipkit-proteus.codebender.cc',
+        iframe: document.getElementById('microchip-codebender-editor').contentWindow
+    };
+    var codebenderEditorClient = new CodebenderClient(editorOptions);
+    var codebenderEditorFilelist = {
+        'Blink.ino': '/*\nTurns on an LED on for one second, then off for one second, repeatedly.\nThis example code is in the public domain.\n*/\n// Pin 13 has an LED connected on most Arduino boards.\n// give it a name:\nint led = 13;\n\n// the setup routine runs once when you press reset:\nvoid setup() \n{\n// initialize the digital pin as an output.\n\tpinMode(led, OUTPUT);\n}\n// the loop routine runs over and over again forever:\n\nvoid loop() {\n\tdigitalWrite(led, HIGH);   // turn the LED on (HIGH is the voltage level)\n\tdelay(1000);               // wait for a second\n\tdigitalWrite(led, LOW);    // turn the LED off by making the voltage LOW\n\tdelay(1000);               // wait for a second\n}'
+    };
+    codebenderEditorClient.setFilelist(codebenderEditorFilelist);
+
+}
+
+window.onload = codebenderInit;
+  </script>
 
   <body>
     <div id="container">
@@ -175,7 +193,7 @@ CodebenderClient.prototype.getFilelist = function () {
 
 <p>This automatic page generator is the easiest way to create beautiful pages for all of your projects. Author your page content here <a href="https://guides.github.com/features/mastering-markdown/">using GitHub Flavored Markdown</a>, select a template crafted by a designer, and publish. After your page is generated, you can check out the new <code>gh-pages</code> branch locally. If you’re using GitHub Desktop, simply sync your repository and you’ll see the new branch.</p>
 
-<iframe style="height: 510px; width: 100%; margin: 10px 0 10px;" allowTransparency="true" src="https://microchip-chipkit-proteus.codebender.cc/" frameborder="0"></iframe>
+<iframe id="microchip-codebender-editor" style="height: 510px; width: 100%; margin: 10px 0 10px;" allowTransparency="true" src="https://microchip-chipkit-proteus.codebender.cc/" frameborder="0"></iframe>
 
 <h3>
 <a id="designer-templates" class="anchor" href="#designer-templates" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Designer Templates</h3>
