@@ -152,18 +152,31 @@ CodebenderClient.prototype.getFilelist = function () {
 };
   </script>
   <script>
-    function codebenderInit() {
-    // Atmel codebender editor
-    var editorOptions = {
+function codebenderInit() {
+    // Microchip codebender editor
+    var blinkOptions = {
         id: 0,
         CODEBENDER_DOMAIN: 'https://microchip-chipkit-proteus.codebender.cc',
-        iframe: document.getElementById('microchip-codebender-editor').contentWindow
+        iframe: document.getElementById('blink-proteus-iframe').contentWindow
     };
-    var codebenderEditorClient = new CodebenderClient(editorOptions);
-    var codebenderEditorFilelist = {
+    var blinkCodebenderClient = new CodebenderClient(blinkOptions);
+    var blinkCodebenderFilelist = {
         'Blink.ino': '/*\nTurns on an LED on for one second, then off for one second, repeatedly.\nThis example code is in the public domain.\n*/\n// Pin 13 has an LED connected on most Arduino boards.\n// give it a name:\nint led = 13;\n\n// the setup routine runs once when you press reset:\nvoid setup() \n{\n// initialize the digital pin as an output.\n\tpinMode(led, OUTPUT);\n}\n// the loop routine runs over and over again forever:\n\nvoid loop() {\n\tdigitalWrite(led, HIGH);   // turn the LED on (HIGH is the voltage level)\n\tdelay(1000);               // wait for a second\n\tdigitalWrite(led, LOW);    // turn the LED off by making the voltage LOW\n\tdelay(1000);               // wait for a second\n}'
     };
-    codebenderEditorClient.setFilelist(codebenderEditorFilelist);
+    blinkCodebenderClient.setFilelist(blinkCodebenderFilelist);
+
+    // Microchip codebender editor
+    var helloworldOptions = {
+        id: 1,
+        CODEBENDER_DOMAIN: 'https://microchip-chipkit-proteus.codebender.cc',
+        iframe: document.getElementById('helloworld-proteus-iframe').contentWindow
+    };
+    var helloworldCodebenderClient = new CodebenderClient(blinkOptions);
+    var helloworldCodebenderFilelist = {
+        'Blink.ino': '/*\nTurns on an LED on for one second, then off for one second, repeatedly.\nThis example code is in the public domain.\n*/\n// Pin 13 has an LED connected on most Arduino boards.\n// give it a name:\nint led = 13;\n\n// the setup routine runs once when you press reset:\nvoid setup() \n{\n// initialize the digital pin as an output.\n\tpinMode(led, OUTPUT);\n}\n// the loop routine runs over and over again forever:\n\nvoid loop() {\n\tdigitalWrite(led, HIGH);   // turn the LED on (HIGH is the voltage level)\n\tdelay(1000);               // wait for a second\n\tdigitalWrite(led, LOW);    // turn the LED off by making the voltage LOW\n\tdelay(1000);               // wait for a second\n}'
+    };
+    helloworldCodebenderClient.setFilelist(helloworldCodebenderFilelist);
+
 
 }
 
@@ -193,14 +206,14 @@ window.onload = codebenderInit;
 
 <p>This automatic page generator is the easiest way to create beautiful pages for all of your projects. Author your page content here <a href="https://guides.github.com/features/mastering-markdown/">using GitHub Flavored Markdown</a>, select a template crafted by a designer, and publish. After your page is generated, you can check out the new <code>gh-pages</code> branch locally. If you’re using GitHub Desktop, simply sync your repository and you’ll see the new branch.</p>
 
-<iframe id="microchip-codebender-editor" style="height: 510px; width: 100%; margin: 10px 0 10px;" allowTransparency="true" src="https://microchip-chipkit-proteus.codebender.cc/" frameborder="0"></iframe>
+<iframe id="blink-proteus-iframe" style="height: 510px; width: 100%; margin: 10px 0 10px;" allowTransparency="true" src="https://microchip-chipkit-proteus.codebender.cc/" frameborder="0"></iframe>
 
 <h3>
 <a id="designer-templates" class="anchor" href="#designer-templates" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Designer Templates</h3>
 
 <p>We’ve crafted some handsome templates for you to use. Go ahead and click 'Continue to layouts' to browse through them. You can easily go back to edit your page before publishing. After publishing your page, you can revisit the page generator and switch to another theme. Your Page content will be preserved.</p>
 
-<iframe style="height: 510px; width: 100%; margin: 10px 0 10px;" allowTransparency="true" src="https://microchip-chipkit-proteus.codebender.cc/" frameborder="0"></iframe>
+<iframe id="helloworld-proteus-iframe" style="height: 510px; width: 100%; margin: 10px 0 10px;" allowTransparency="true" src="https://microchip-chipkit-proteus.codebender.cc/" frameborder="0"></iframe>
 <iframe style="height: 510px; width: 100%; margin: 10px 0 10px;" allowTransparency="true" src="https://codebender.cc/embed/serialmonitor" frameborder="0"></iframe>
 
 <h3>
